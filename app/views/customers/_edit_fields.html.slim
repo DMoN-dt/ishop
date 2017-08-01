@@ -1,0 +1,133 @@
+# encoding: UTF-8
+
+- ts_bcp = [:dt_breeze, :cabinet, :profile]
+- ts_btn = [:dt_breeze, :buttons]
+
+- if(!defined?(formobj))
+  - formobj = 'customer'
+
+- b_ind = ((@pparams[:customer_type_select] != "legal") ? true : false)
+
+<!--googleoff: all-->
+<!--noindex-->
+= form_for(formobj, url: @form_path, remote: false, enforce_utf8: true, format: :html, html: {id: 'customer_form'} ) do |ff|
+  input[type="hidden" name="ftime" value="#{@form_time_now}"]
+  input[type="hidden" name="fhash" value="#{@form_hash}"]
+
+  - if(@user.present?)
+    input[type="hidden" name="user_uid" value="#{User.pub_safe_uid(nil, @user.id, true)}"]
+    span[class="ptxt"]Пользователь: <span class="text-bold">#{@user.get_name_string}</span><p>&nbsp;</p>
+  
+  div[class="customer-contacts"]
+    div[class="form-radio"]
+      div[class="radio"]
+        <input type="radio" id="customer_individual" name="customer_type_select" value="individual" #{(b_ind) ? 'checked' : ''}>
+        label[for="customer_individual"]Физическое лицо
+      div[class="radio"]
+        <input type="radio" id="customer_legal" name="customer_type_select" value="legal" #{(!b_ind) ? 'checked' : ''}>
+        label[for="customer_legal"]Юридическое лицо, ИП
+    
+    div[id="individual_info" class="#{(b_ind) ? '' : 'no_display'}"]
+      div[class="form-group"]
+        label[for="individual_contact" required]Телефон для уточнения деталей заказа
+        input[type="tel" name="individual_contact" value="#{@pparams[:individual_contact]}" maxlength=20 class="clr" data-inputmask="'alias': 'phone_ru'" id="individual_contact"]
+      div[class="form-group"]
+        label[for="individual_anynm" required]Имя покупателя (фамилия, отчество)
+        input[type="text" name="individual_anynm" value="#{@pparams[:individual_anynm]}" maxlength=80 class="clr" id="individual_anynm"]
+      div[class="form-group"]
+        label[for="individual_mail" required]E-mail для информирования о состоянии заказа
+        input[type="email" name="individual_mail" value="#{@pparams[:individual_mail]}" maxlength=120 class="clr" id="individual_mail"]
+      div[class="form-group" class="no_display"]
+        label[for="phone" required]Ваш телефон
+        input[type="tel" name="phone" value="#{@pparams[:phone]}" maxlength=20]
+      div[class="form-group" class="no_display"]
+        label[for="email"]Ваш E-mail
+        input[type="email" name="email" value="#{@pparams[:email]}" maxlength=120 ]
+    
+    div[id="legal_info" class="#{(b_ind) ? 'no_display' : ''}"]
+      div[class="form-group"]
+        label[for="legal_name" required]Наименование
+        input[type="text" name="legal_name" value="#{@pparams[:legal_name]}" maxlength=200 class="clr"]
+      div[class="form-group"]
+        label[for="legal_ogrn" required]ОГРН
+        input[type="number" name="legal_ogrn" value="#{@pparams[:legal_ogrn]}" maxlength=50 class="clr"]
+      div[class="form-group"]
+        label[for="legal_inn" required]ИНН
+        input[type="number" name="legal_inn" value="#{@pparams[:legal_inn]}" maxlength=50 class="clr"]
+      div[class="form-group"]
+        label[for="legal_kpp"]КПП
+        input[type="number" name="legal_kpp" value="#{@pparams[:legal_kpp]}" maxlength=50 class="clr" title="Не заполняется для ИП"]
+      div[class="form-group"]
+        label[for="legal_addr_ur" required]Юридический адрес
+        input[type="text" name="legal_addr_ur" value="#{@pparams[:legal_addr_ur]}" maxlength=200 class="clr"]
+      div[class="form-group"]
+        label[for="legal_addr_post"]Почтовый адрес
+        input[type="text" name="legal_addr_post" value="#{@pparams[:legal_addr_post]}" maxlength=200 class="clr"]
+      div[class="form-group"]
+        label[for="legal_dir_post"]Должность руководителя
+        input[type="text" name="legal_dir_post" value="#{@pparams[:legal_dir_post]}" maxlength=50 class="clr" placeholder="Директор" title="Не заполняется для ИП"]
+      div[class="form-group"]
+        label[for="legal_dir_name"]ФИО руководителя
+        input[type="text" name="legal_dir_name" value="#{@pparams[:legal_dir_name]}" maxlength=120 class="clr" placeholder="Фамилия Имя Отчество" title="Не заполняется для ИП"]
+      div[id="legal_person" class="form-group-border"]
+        p Контакты для уточнения деталей и информирования о статусе заказа
+        div[class="form-group"]
+          label[for="legal_person1_name" required]Контакт 1
+          input[type="text" name="legal_person1_name" value="#{@pparams[:legal_person1_name]}" maxlength=120 class="clr" placeholder="Фамилия Имя Отчество"]
+          input[type="tel" name="legal_person1_phone" value="#{@pparams[:legal_person1_phone]}" maxlength=20 class="clr" placeholder="Телефон" data-inputmask="'alias': 'phone_ru'"]
+          input[type="email" name="legal_person1_mail" value="#{@pparams[:legal_person1_mail]}" maxlength=120 class="clr" placeholder="E-mail"]
+        div[class="form-group"]
+          label[for="legal_person2_name"]Контакт 2
+          input[type="text" name="legal_person2_name" value="#{@pparams[:legal_person2_name]}" maxlength=120 class="clr" placeholder="Фамилия Имя Отчество"]
+          input[type="tel" name="legal_person2_phone" value="#{@pparams[:legal_person2_phone]}" maxlength=20 class="clr" placeholder="Телефон" data-inputmask="'alias': 'phone_ru'"]
+          input[type="email" name="legal_person2_mail" value="#{@pparams[:legal_person2_mail]}" maxlength=120 class="clr" placeholder="E-mail"]
+    
+  br
+  div[class="status_block"]: ul: li
+  center
+    = ff.submit t(:save, scope: ts_btn), class: 'button btn clr4 btn-margin-w', type: 'submit'
+    a[href="javascript:history.back()" class='button btn btn-border-4 border-thin btn-margin-w']Отмена
+  hr
+  p[class="f_80"]* Обязательно для заполнения<br>** Все указанные сведения будут автоматически подставляться в форму заказа и Вы сможете в ней их редактировать.
+<!--/noindex-->
+<!--googleon: all-->
+
+script
+  - if(@result_err.present?) && (@result_err['status_text'].present?)
+    | $json_res = #{@result_err.to_json.html_safe}; 
+    | window['JSON_check_status']($json_res, $("#customer_form .status_block"), false, $("#customer_form"));
+
+javascript:
+  window['on_customer_type'] = function ($this){
+    ptr1 = $(".customer-contacts #individual_info");
+    ptr2 = $(".customer-contacts #legal_info");
+    if($($this).val() == "individual"){
+        ptr1.show(); ptr2.hide();
+        $("#customer_form").attr('important-fields', "individual_contact individual_anynm individual_mail");
+    }
+    else {
+        ptr1.hide(); ptr2.show();
+        $("#customer_form").attr('important-fields', "");
+    }
+  }
+  
+  function edit_customer_onchange(event){
+    etarget = $(event.target);
+    if(etarget.is(".customer-contacts input[type=radio][name=customer_type_select]")){
+      window['on_customer_type'](event.target)
+    }
+  }
+  
+  window["edit_customer_onload"] = function (page_frame){
+    $(document).on("change", edit_customer_onchange);
+    window['on_customer_type']($('.customer-contacts input[type=radio][name=customer_type_select]:checked'));
+    Inputmask.extendAliases({'phone_ru' : {'mask': '+7(999) 999-9999'}});
+    Inputmask().mask(document.querySelectorAll("input[data-inputmask]"));
+  }
+  
+  window["edit_customer_teardown"] = function (page_frame){
+    $(document).off("change", edit_customer_onchange);
+  }
+  
+  $(document).on("ready turbolinks:load", window["edit_customer_onload"]);
+  $(document).on("turbolinks:before-cache", window["edit_customer_teardown"]);

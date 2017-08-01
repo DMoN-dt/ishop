@@ -1,0 +1,27 @@
+# encoding: UTF-8
+
+- if(!defined?(customers))
+  - customers = @customers
+
+- if(!defined?(scram_emails))
+  - scram_emails = nil
+
+- if(!defined?(as_links))
+  - as_links = true
+  
+div[class="customers list-flex align-items-start"]
+  - customers.each do |customer|
+    - customer_uid = customer.static_pub_safe_uid(@customer_safeid_params)
+    - is_active_class = (@cur_customer_id.nil? or (@cur_customer_id != customer.id)) ? nil : 'active'
+    
+    - if(as_links)
+      <a href="#{customer_path(id: customer_uid.gsub('.', '%2E'))}" class="customer list-item #{is_active_class}" title="#{is_active_class.nil? ? nil : 'Используется по-умолчанию'}">
+    - else
+      <span class="customer list-item #{is_active_class}" data-item-uid="#{customer_uid}">
+    
+    = render 'customers/customer_info', allow_legal_info: true, allow_contacts: true, scram_emails: scram_emails, customer: customer, as_profile_widgets: @as_profile_widgets
+    
+    - if(as_links)
+      </a>
+    - else
+      </span>

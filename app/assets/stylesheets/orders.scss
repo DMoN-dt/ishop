@@ -1,0 +1,285 @@
+// Place all the styles related to the orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new-order{
+	.button {
+		width: 100%; margin-bottom: 1.4rem;
+		.hdr {font-size: 1.3rem; margin-bottom: .5rem;}
+		.i1, .i2 {clear: both; font-size: 1rem; font-weight: normal;}
+	}
+	
+	.btn-express {height: 7rem;}
+	
+	.radio .info {font-style: italic; color: #444444; font-size: .85rem; margin-left: 1.2rem;}
+	.radio label {font-weight: 500;}
+	
+	.customers .customer {background-color: #fbfbfb;}
+	.customers .customer.active {background-color: #dcf0ff;}
+	.destinations .destination.active {background-color: #dcf0ff;}
+	
+	.subpanel {margin-bottom: 2rem;}
+}
+
+.order-details-full {
+	.order-items {
+		.t-table, .t-row {display: block;}
+		.t-row {width: auto;}
+		.t-cell {display: inline-block;}
+		.prod-status.t-cell {width: 16%;}
+		.price.cost.t-cell {width: 16%;}
+		.price-total.t-cell {width: 16%;}
+	}
+	
+	.order-head {
+		background-color: transparent !important;
+		font-size: 1rem; color: #000;
+		height: auto;
+	}
+	
+	.order-cost {float: none !important;}
+	.order-cost .val {display: inline !important; font-size: 1.05rem !important; margin-right: .8rem;}
+	
+	.order-id {display: none;}
+	
+	.pay_info {
+		margin-top: 1rem;
+		
+		.payments, .payinvoices-list {margin-top: 1rem;}
+		
+		.payinvoices-list .list.t-table, .payments-list .list.t-table {
+			.list-head {font-weight: 500; font-size: .9rem;}
+			.t-cell {padding: 0; font-size: .85rem;}
+		}
+	}
+}
+
+.order-details-full.mode-moder {
+	.product {background-color: #eaeaea;}
+	.product.lite:hover > .t-cell  {background-color: transparent;}
+	.product.lite:hover {background-color: #e0e0e0;}
+	.product.lite:hover + .t-row > .prod-moder, .prod-moder:hover {background-color: #ededed;}
+	.product .quantity.value {font-weight: bold; color: #444444;}
+
+}
+
+.order-details {
+	.radio label {font-weight: bold;}
+	
+	.customer_dp_data .radio label {font-weight: 500;}
+	
+	.delivery {
+		.radio .info {font-style: italic; color: #444444; font-size: .85rem; margin-left: 1.2rem;}
+		
+		.delivery-company {margin-left: 1.5rem; font-weight: normal;}
+		.delivery-company, .delivery-price, .delivery-postoffice {display: none;}
+		.delivery-company .radio label {font-weight: normal;}
+		.delivery-company .radio label[for="delivery_company_not_care"], .delivery-company .radio label[for="delivery_pickpoint_not_care"] {font-style: italic;}
+		.delivery-company .radio.preferrable label {font-weight: bold;}
+		.delivery-price, .delivery-postoffice {margin-top: 2rem;}
+		.delivery-price .radio .info {font-style: italic; color: #444444; font-size: .9rem; margin-left: 1.2rem;}
+	}
+	
+	.total {
+		margin-top: 1.25rem;
+		margin-bottom: 1.25rem;
+		
+		.price-summ {font-size: 1.4rem; font-weight: bold; white-space: nowrap;}
+	}
+	
+	.total.itog {
+		.price-summ {color: #ff7d10; white-space: nowrap;}
+	}
+	
+	form.pay_type {
+		.dlv-price-type {
+			padding-left: .5rem;
+			.info {margin-left: 1.2rem; font-style: italic;}
+		}
+		
+		.pay-method {margin-top: 2.25rem;}
+	}
+	
+}
+
+.order-details .step-info{
+    list-style: outside none none;
+    margin: 2em 0;
+    padding: 0;
+	font-family: Arial;
+	
+	li {
+		list-style: outside none none;
+		display: inline-block;
+		position: relative;
+		
+		.num {
+			width: 1.5em;
+			height: 1.5em;
+			line-height: 1.5em;
+			display: inline-block;
+			margin-right: .5rem;
+			-webkit-border-radius: 2em;
+			-moz-border-radius: 2em;
+			border-radius: 2em;
+			text-align: center;
+			color: #fff;
+			background-color: #d8d8d8;
+			font-family: Verdana, Arial;
+		}
+	}
+	
+	li+li {margin-left: 5em;}
+	
+	li:after {
+		content: " ";
+		width: 10px;
+		height: 10px;
+		position: absolute;
+		right: -1.5em;
+		top: 50%;
+		margin-top: -0.3em;
+		font-size: 70%;
+		color: transparent;
+		-webkit-mask-image: asset-url('arr_right.svg');
+		mask-image: asset-url('arr_right.svg');
+		background-color: #d8d8d8;
+		background-repeat:no-repeat; background-position: center center;
+	}
+
+	li.active {
+		font-size: 1.125rem;
+		font-weight: bold;
+		
+		.num {
+			font-size: 1.25rem;
+			background-color: #0275d8;
+		}
+	}
+	
+	li.active:after {
+		background-color: #0275d8;
+	}
+	
+	.radio label {
+		font-weight: bold;
+	}
+}
+
+.order-details.order-new {
+	.delivery-info {
+		.receiving_way, .price {
+			font-family: inherit; color: inherit;
+			.info-title {font-size: 1.25rem; font-weight: 500;}
+			.info-text {font-size: 1.2rem; font-weight: bold;}
+		}
+		
+		.price {margin-top: 1rem;}
+	}
+}
+
+.tab-content.pay-doc-info {
+	border-bottom: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+
+.pay-doc-info {
+	background-color: #fff;
+	padding: 15px 15px;
+	min-height: 15rem;
+	
+	.info-title, .info-text {font-size: 1rem;}
+	.info-title {font-weight: bold;}
+	.total {color: #636363;}
+	.total.itog, .total.delivery-info {color: inherit;}
+	
+	.total.delivery-info {
+		span, div, p {font-size: 1rem;}
+	}
+	
+	.order-info {
+		
+		
+	}
+}
+
+.order-items {
+	.product.lite {
+		color: #000; font-size: .95rem; border-bottom: solid 1px #d5d5d5;
+		
+		.prod-checkbox {text-align: right; width: 2.5rem;}
+		.prod-code {font-size: .95rem; width: 20%;}
+		.prod-code .code, .prod-code .brand {display: inline-block;}
+		.prod-code .brand {font-weight: bold; margin-right: .5rem;}
+		.price-total {font-weight: bold; text-align: right; color: #444444;}
+		.price.cost {color: #808080; padding-right: .2rem; text-align: right;}
+		.price .rub-ico {margin-left: 0;}
+		.caption {width: 32%; padding-right: .2rem;}
+		
+		.price {
+			white-space: nowrap;
+			.quantity, quantity-multiplier, .value {display: inline-block;}
+			.quantity-multiplier {margin: 0 .35rem;}
+		}
+		.prod-status {font-size: .85rem; padding-right: 3px;}
+		
+		.ico-wait {
+			background-image: asset-url('wait_clock_sm.svg'); background-repeat: no-repeat; opacity: .8;
+			height: 18px; width: 10px; display: block;
+			float: right; margin-left: 7px; margin-top: 3px;
+			cursor: help;
+		}
+		
+		.btn-delete {
+			background-image: asset-url('btn_delete.svg'); background-repeat: no-repeat; opacity: .5;
+			height: 23px; width: 23px; display: block;
+			float: right; margin-left: 7px; padding: 0;
+		}
+		
+		.btn-delete:hover, .btn-delete:active, .btn-delete:focus {opacity: 1;}
+	}
+	
+	.product.lite:hover > .t-cell {background-color: #f5f5f5;}
+	
+	.product.disabled, .product.disabled .price.cost, .product.disabled .prod-code > a, .product.disabled .price-total {color: #b7b7b7;}
+	.product.removed, .product.removed div, .product.removed span, .product.removed .prod-code > a {color: #9a9a9a; text-decoration: line-through;}
+}
+
+.order-items.t-table {table-layout: fixed;}
+
+.order-items > .product > .t-cell:first-of-type, .order-items > .product > .t-cell:last-of-type {padding: .5rem;}
+
+.order-items > .product-moder{
+	.prod-moder {
+		padding: 0 1rem 0 1rem; margin: 0 0 1rem 0;
+		
+		.prod-not-active {color: #a90000; font-weight: 500;}
+	}
+	color: #484848;
+	
+	.prod-supplier, .prod-supplier-wrh {margin: 0 .6rem .6rem .6rem;}
+	.wrh-prod {margin: 0 .6rem .2rem .6rem;}
+}
+
+.order-moder-block {
+	margin-top: 3rem;
+	
+	h4 {font-size: 1.1rem;}
+	.block-title {color: #0a70b7; margin-bottom: 1rem;}
+	
+	.form-group-border {padding-bottom: .8rem; padding-top: .4rem;}
+	
+	.delivery-price {
+		label.delivery-cost {font-size: .85rem; clear: both; display: block; margin-bottom: .3rem;}
+		input.delivery-cost {font-size: 1rem; width: 8rem; margin-right: .5rem; text-align: right;}
+	}
+	.delivery-price.default input.delivery-cost {color: #a00000;}
+}
+
+
+@media (max-width: 991px) {
+	.order-details .step-info li+li {
+		margin-left: 1em;
+	}
+}

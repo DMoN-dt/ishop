@@ -1,0 +1,2 @@
+class GenGovTaxSystem < ApplicationRecord
+end

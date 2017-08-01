@@ -1,0 +1,60 @@
+# encoding: UTF-8
+
+- content_for :html_title do
+  | Поиск запчастей для грузовых автомобилей и спецтехники
+
+- content_for :head do
+  link rel="canonical" href="#{url_for(:only_path => false)}"
+  meta[name="robots" content="index, follow"]
+  meta[name="keywords" content="запчасти для иномарок, автомагазин, запчасти на автомобили, интернет магазин автозапчастей, автозапчасти иномарки, авто магазин, интернет магазин запчастей, продажа автозапчастей"]
+  meta[name="description" content="Интернет-магазин ЗАГРУЗ.рф - портал по продаже автозапчастей для иномарок. Все автозапчасти поставляются от производителей и официальных дилеров"]
+
+- content_for :main_container_class do
+  |full-width
+
+- if(@categories.present?)
+  aside[class="over-edge" id="main-catalog"]
+    ul[id="menu-catalog" class="catalog"]
+      li[class="catalog-hide"]: a[href="javascript:void(0)" onclick="$('#main-catalog').collapse('hide');"]
+        div[class="title"] &lt;&nbsp; Скрыть каталог
+      
+      - @categories.each do |category|
+        - if(category[:seller_main_id] == 0)
+          li[class="catalog-item" data-category-id="#{category.pub_id}"]: a[href="/catalog/#{category.pub_id_link.to_s + @url_filter_for_model}" data-link="#{category.pub_id_link}"]
+            div[class="title"] #{category[:gr_name]}
+            div[class="sign-arr-right"]
+        
+      
+main[class="catalog-list" id="cl_#{@panel_uid_catalog_list}"]
+  //ol[class="breadcrumb" itemscope="http://schema.org/BreadcrumbList"]
+    li[itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"] Меню &nbsp;
+  
+  div[class="site-search"]
+    h1 Поиск запчастей для грузовых автомобилей и спецтехники
+    = form_for('gen_search_product', url: '/search', method: :post, remote: false, enforce_utf8: true, format: :html, html: {id: 'search_form', class: "search-form"} ) do |ff|
+      - if(@pparams[:text].present?)
+        label[for="search_text"] Вы искали:
+      div[class="input-group"]
+        input[type="search" name="text" class="form-control" placeholder="Найти на сайте" autocomplete="off" value="#{@pparams[:text]}" accesskey="s" maxlength="400" id="search_text"]
+        span[class="input-group-btn"]
+          button[class="btn btn-primary" type="submit"]Найти
+    
+    - if(@pparams[:text].present?)
+      - if(@search_success)
+        h6 Результаты поиска
+        // (#{page_entries_info @search_result})
+      - else
+        p По вашему запросу ничего не нашлось
+        - if(@search_result.present?)
+          h6 Результаты поиска по запросу &laquo;#{@new_query_text}&raquo;
+      
+      - if(@search_result.present?)
+        div[class="products-list"]
+          div[class="list"]
+            - @search_result.each do |search_result|
+              - product = @products.select{|x| x.id == search_result.seller_prod_id}.first
+              - if(product.present?)
+                = render 'products/list_item_row', prod: product, no_buy_button: true
+          
+        div[class="page_pagination objlist"]
+          = will_paginate @search_result, :container => false, :params => {text: (@search_success ? @pparams[:text] : @new_query_text)}

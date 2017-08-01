@@ -1,0 +1,19 @@
+# encoding: UTF-8
+
+div[class="cabinet-mainpage"]
+  div[class="page-block padding-more menu-block"]
+    div[class="row"]
+      - if(@is_allowed_to_ecommerce)
+        div[class="col-md-9"]
+          div[class="row"]
+            = render 'menu_block_ecommerce'
+
+        //div[class="col-md-3 block-border-left"]
+          div[class="menu-block"]
+            div[class="menu-item"]
+              div[class="item-title"]= link_to "Выход", destroy_user_session_path, :method => :delete
+      
+      - else
+        div[class="col-md-12"]
+          = render file: 'welcome/error_access_denied'
+          // p Если Вы попали сюда случайно, возможно, Вас интересует кто создал данный интернет-магазин ?

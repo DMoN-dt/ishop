@@ -1,0 +1,11 @@
+# encoding: UTF-8
+- ts_bmail = [:dt_breeze, :mails]
+- ts_mail  = [:dt_ishop,  :mails]
+
+- recipient_name = @user_name
+p <b>#{(recipient_name.blank?) ? t(:first_greetings_noname, scope: ts_mail) : t(:first_greetings, scope: ts_mail, tname: recipient_name)}</b>
+p #{t(:you_are_welcome, scope: ts_bmail, tsite: t(:mail_footer_sitename, scope: ts_bmail))}
+div #{t(:welcome_more_html, scope: ts_mail)}
+
+<br><br>
+= render 'common_shared/mail_footer_adm'

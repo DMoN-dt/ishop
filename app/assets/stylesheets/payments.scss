@@ -1,0 +1,55 @@
+// Place all the styles related to the payments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pay-types > .radio > label {font-weight: bold;}
+
+.pay-methods > .card {
+	    margin-bottom: 1.5rem;
+}
+
+.pay-methods > .card > .card-header, .card.pay-confirm > .card-header {
+	color: #1982d1; padding-top: .5rem; padding-bottom: .5rem;
+	h5 {font-size: 1.1rem; margin:0; padding: 0;}
+}
+
+.pay-methods > .card > .card-block {
+	padding-top: .5rem; padding-bottom: .5rem;
+}
+
+.pay-methods > .card > .card-block > .radio-btn {
+	display: inline-block;
+	float: left;
+}
+.pay-methods > .card > .card-block > .radio > label {
+	min-width: 10rem;
+	height: 80px;
+	font-weight: bold;
+	
+	.logo {
+		margin:0 7px 15px 7px;
+		background: transparent;
+		border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px;
+	}
+}
+
+.pay-methods > .card > .card-block > .radio-btn input[type="radio"]:checked+label {border-color: #008eff;}
+
+.pay-services .radio-btn > label {height: auto !important;}
+.pay-services .radio-btn > label .info {font-size: .85rem; font-weight: normal;}
+
+.pay-confirm .pay-logo {
+	margin:0 15px 15px 0px;
+	background: transparent;
+	border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px;
+	border: 1px solid #dcdcdc;
+	padding: 1rem;
+	min-height: 4.5rem; height: auto; width: auto;
+	display: inline-block; float: left;
+}
+
+.pay-confirm .pay-logo:last-of-type {margin-right: 0;}
+
+.pay-confirm > .card-block > .info {clear: both; display: block;}
+
+.form-buttons {margin: 2.5rem 0 1.5rem 0;}

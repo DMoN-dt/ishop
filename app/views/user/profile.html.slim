@@ -1,0 +1,76 @@
+# encoding: UTF-8
+
+- ts_bcp = [:dt_breeze, :cabinet, :profile]
+- ts_msg = [:dt_breeze, :messages]
+- ts_btn = [:dt_breeze, :buttons]
+
+// Page Title
+- page_header = t(:title_user_profile, scope: ts_bcp) 
+
+- content_for :html_title do
+  |#{page_header} - #{t(:html_title_short_part, scope: [:dt_breeze])}
+
+div[class="cabinet-mainpage" id="cabinet_mainpage"]
+  div[class="page-block padding-more"]
+    h1 #{page_header}
+    div[class="user-profile"]
+      div[class="fields-table user-general"]
+        div[class="field"]
+          div[class="field-label"]#{t(:user_name, scope: ts_bcp)}
+          - text = @user.get_name_string
+          - if(text.blank?)
+            - text = t(:undefined, scope: ts_msg)
+            - style= 'itxt utxt'
+          - else
+            - style = ''
+          a[href="/user/profile_edit" title="#{t(:edit, scope: ts_btn)}" class="edit-click #{style}"] #{text}
+          //button[class="btn-edit" title="#{t(:edit, scope: ts_btn)}"]
+        
+        div[class="field"]
+          div[class="field-label"]#{t(:user_sex, scope: ts_bcp)}
+          - if(@user.sex.to_i != 0)
+            - text = @user.sex_name
+            - style = ''
+          - else
+            - text = t(:user_sex_undefined, scope: ts_bcp)
+            - style= 'itxt utxt'
+          a[href="/user/profile_edit" title="#{t(:edit, scope: ts_btn)}" class="edit-click #{style}"] #{text}
+
+        div[class="field"]
+          div[class="field-label"]#{t(:user_email, scope: ts_bcp)}
+          - if(@user.email.present?)
+            - text = @user.get_email_hidden_symbols
+            - style = ''
+          - else
+            - text = t(:undefined, scope: ts_msg)
+            - style= 'itxt utxt'
+          a[href="/user/profile_edit" title="#{t(:edit, scope: ts_btn)}" class="edit-click #{style}"] #{text}
+
+        div[class="field last-visit"]
+          div[class="field-label"]#{t(:user_last_visit, scope: ts_bcp)}
+          - if(@user.last_sign_in_at.present?)
+            span #{l(@user.last_sign_in_at.in_time_zone(@user_tzone[:wtz]), :format => ((@user.last_sign_in_at.year == @cur_year) ? :long_wo_year : :long)) + @user_tzone_name}
+          - else
+            span: i #{t(:undefined, scope: ts_msg)}
+        // = link_to t(:user_change_password, scope: ts_bcp), '#', class: "btn btn-border-4 btn-thin"
+        
+        br
+        hr
+        h2 #{t(:header_customers, scope: [:dt_ishop, :cabinet, :profile])}
+        - if(@user_customers.nil?)
+          a[href="#{new_customer_path}" class="button btn clr4"] #{t(:add_customer, scope: [:dt_ishop, :buttons])}
+        - else
+          - @as_profile_widgets = true
+          = render 'customers/list', customers: @user_customers, scram_emails: [@user.email, @user.unconfirmed_email]
+          a[href="#{new_customer_path}" class="button btn btn-border-4 btn-thin"] #{t(:add_customer, scope: [:dt_ishop, :buttons])}
+        
+        - if(!@user_destinations.nil?)
+          br
+          br
+          hr
+          h2 #{t(:header_destinations, scope: [:dt_ishop, :cabinet, :profile])}
+          = render 'destinations/list', destinations: @user_destinations, link_to: 'edit'
+          a[href="#{new_destination_path}" class="button btn btn-border-4 btn-thin"] #{t(:add_delivery_loc, scope: [:dt_ishop, :buttons])}
+
+        //- else
+          a[href="#{new_destination_path}" class="button btn clr2"] #{t(:add_delivery_loc, scope: [:dt_ishop, :buttons])}

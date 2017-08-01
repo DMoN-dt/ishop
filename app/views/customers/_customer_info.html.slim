@@ -1,0 +1,107 @@
+# encoding: UTF-8
+
+- if(!defined?(allow_legal_info))
+  - allow_legal_info = @allow_legal_info
+
+- if(!defined?(allow_contacts))
+  - allow_contacts = @allow_contacts
+
+- if(!defined?(customer))
+  - customer = @customer
+
+- if(!defined?(scram_emails) or scram_emails.nil? or (scram_emails.is_a?(Array) && scram_emails.blank?))
+  - scram_emails = true
+
+- if(!defined?(as_profile_widgets))
+  - as_profile_widgets = false
+
+- if(allow_legal_info or allow_contacts)
+  div[class="customer-details"]
+    div[class="customer-type"]
+      - txt = nil
+      - orgtype = 0
+      - if(customer[:customer_type] == CUSTOMER_TYPE_FIZ_LICO)
+        - txt = ORGANIZATION_TYPES[ORGANIZATION_TYPE_FIZ_LICO][:full]
+      - elsif(customer[:customer_legal_info].present?)
+        - if(customer[:customer_legal_info]['orgtype'].present?)
+          - orgtype = customer[:customer_legal_info]['orgtype'].to_i
+          - if(ORGANIZATION_TYPES.has_key?(orgtype))
+            - txt = ORGANIZATION_TYPES[orgtype][:full]
+      
+      - if(txt.nil?)
+        - txt = 'Юридическое лицо'
+      
+      - if(!as_profile_widgets)
+        span[class="info-title"]Тип покупателя:&nbsp;
+      span[class="info-text"]#{txt}
+
+    - if(customer[:customer_type] == CUSTOMER_TYPE_LEGAL)
+      - if(allow_legal_info)
+        - legal_info = customer[:customer_legal_info]
+        - if(legal_info.present?)
+          span[class="info-title cm-type"]#{(orgtype == ORGANIZATION_TYPE_IND_PREDP) ? 'ИП' : 'Наименование'}:&nbsp;
+          span[class="info-text cm-name"]#{legal_info['name']}
+          br
+          span[class="info-title"]ОГРН:&nbsp;
+          span[class="info-text"]#{legal_info['ogrn']}
+          br
+          span[class="info-title"]ИНН:&nbsp;
+          span[class="info-text"]#{legal_info['inn']}
+          - if(legal_info['kpp'].present?)
+            |&nbsp;&nbsp;
+            span[class="info-title"]КПП:&nbsp;
+            span[class="info-text"]#{legal_info['kpp']}
+          br
+          - show_addr = (allow_contacts or (orgtype != ORGANIZATION_TYPE_IND_PREDP))
+          span[class="info-title"]#{as_profile_widgets ? 'Юр. адрес ' : 'Юридический адрес'}:&nbsp;
+          span[class="info-text"]#{show_addr ? legal_info['addr_ur'] : '***'}
+          br
+          - if(legal_info['addr_post'].present?)
+            span[class="info-title"]Почтовый адрес:&nbsp;
+            span[class="info-text"]#{show_addr ? legal_info['addr_post'] : '***'}
+            br
+          - if(orgtype != ORGANIZATION_TYPE_IND_PREDP)
+            span[class="info-title"]Руководитель:&nbsp;
+            span[class="info-text"]#{legal_info['dir_post']} #{legal_info['dir_name']}
+            br
+      - else
+        div[class="status_block warn_info visible"]У вас нет доступа к информации о покупателе.
+      
+      br
+      p: b Контактная информация:
+    
+    - if(allow_contacts)
+      - if(customer[:customer_contacts].present?)
+        - cont1_name  = customer[:customer_contacts]['name1']
+        - cont1_email = customer[:customer_contacts]['email1']
+        - cont1_phone = customer[:customer_contacts]['phone1']
+        - cont2_name  = customer[:customer_contacts]['name2']
+        - cont2_email = customer[:customer_contacts]['email2']
+        - cont2_phone = customer[:customer_contacts]['phone2']
+        
+        - if(cont1_name.present? or cont1_email.present? or cont1_phone.present?)
+          - if(cont1_name.blank?)
+            - cont1_name = 'не указано'
+          <p><span class="info-title">Имя:</span> <span class="info-text text-bold">#{cont1_name}</span><br>
+          - if(cont1_email.present?)
+            - email = ((scram_emails.is_a?(TrueClass) or (scram_emails.is_a?(Array) && scram_emails.include?(cont1_email))) ? User.email_hide_symbols(cont1_email) : cont1_email)
+            |<span class="info-title">E-mail:</span> <span class="info-text text-bold">#{email}</span><br>
+          - if(cont1_phone.present?)
+            |<span class="info-title">Тел:</span><span class="info-text text-bold">#{cont1_phone}</span>
+          </p>
+          
+        - if(cont2_name.present? or cont2_email.present? or cont2_phone.present?)
+          - if(cont2_name.blank?)
+            - cont2_name = 'не указано'
+          <p><span class="info-title">Имя: <span class="info-text text-bold">#{cont2_name}</span><br>
+          - if(cont2_email.present?)
+            - email = ((scram_emails.is_a?(TrueClass) or (scram_emails.is_a?(Array) && scram_emails.include?(cont2_email))) ? User.email_hide_symbols(cont2_email) : cont2_email)
+            |<span class="info-title">E-mail:</span> <span class="info-text text-bold">#{email}</span><br>
+          - if(cont2_phone.present?)
+            |<span class="info-title">Тел:</span><span class="info-text text-bold">#{cont2_phone}</span>
+          </p>
+    - else
+      div[class="status_block warn_info visible"]У вас нет доступа к контактам покупателя.
+
+- else
+  div[class="status_block warn_info visible"]У вас нет доступа к информации о покупателе и его контактах.

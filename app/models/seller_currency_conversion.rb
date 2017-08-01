@@ -1,0 +1,2 @@
+class SellerCurrencyConversion < ApplicationRecord
+end

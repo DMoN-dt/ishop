@@ -1,0 +1,19 @@
+# encoding: UTF-8
+
+- ts_tcp = [:dt_ishop,  :cabinet, :profile]
+- ts_msg = [:dt_breeze, :messages]
+
+// Page Title
+- page_header = t(:header_delete_customer, scope: ts_tcp)
+
+- content_for :html_title do
+  |#{page_header} - #{t(:html_title_short_part, scope: [:dt_breeze])}
+
+div[class="cabinet-mainpage" id="cabinet_mainpage"]
+  div[class="page-block padding-more"]
+    h1 #{page_header}
+    
+    - if(@json_answer['status'] == 'ok')
+      div[class="status_block success visible"]#{t(:msg_customer_deleted, ttext: @customer_name, scope: ts_tcp)}
+    - else
+      div[class="status_block error visible"]#{t(:Error, scope: ts_msg)}: #{(@json_answer['status_text'].present?) ? @json_answer['status_text'] : t(:error_unknown, scope: ts_msg)}

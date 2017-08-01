@@ -1,0 +1,2 @@
+class DocumentPartner < Document
+end

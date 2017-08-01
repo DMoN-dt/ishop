@@ -1,0 +1,42 @@
+# encoding: UTF-8
+
+- content_for :html_title do
+  | #{@txt_cabinet_html_title}
+
+div[class="cabinet-mainpage"]
+  div[class="page-block padding-more menu-block"]
+    div[class="row"]
+      div[class="col-md-9"]
+        div[class="row"]
+          div[class="menu-block block-col block-wd-half"]
+            div[class="menu-item"]
+              div[class="item-title"]= link_to I18n.t(:profile, scope: [:dt_ishop, :cabinet, :menu_main]), user_index_path
+              div[class="item-desc"]#{I18n.t(:profile_desc, scope: [:dt_ishop, :cabinet, :menu_main])}
+            div[class="menu-item"]
+              div[class="item-title"]= link_to I18n.t(:cart, scope: [:dt_ishop, :cabinet, :menu_main]), cart_cabinet_index_path
+              div[class="item-desc"]#{I18n.t(:cart_desc, scope: [:dt_ishop, :cabinet, :menu_main])}
+			// div[class="menu-item disabled"]
+              div[class="item-title"]= link_to I18n.t(:discounts, scope: [:dt_ishop, :cabinet, :menu_main]), discounts_cabinet_index_path
+              div[class="item-desc"]#{I18n.t(:discounts_desc, scope: [:dt_ishop, :cabinet, :menu_main])}
+        
+          div[class="menu-block block-col block-wd-half"]
+            div[class="menu-item"]
+              div[class="item-title"]= link_to I18n.t(:orders, scope: [:dt_ishop, :cabinet, :menu_main]), orders_cabinet_index_path
+              div[class="item-desc"]#{I18n.t(:orders_desc, scope: [:dt_ishop, :cabinet, :menu_main])}
+            div[class="menu-item"]
+              div[class="item-title"]= link_to I18n.t(:payments, scope: [:dt_ishop, :cabinet, :menu_main]), payments_user_index_path
+              div[class="item-desc"]#{I18n.t(:payments_desc, scope: [:dt_ishop, :cabinet, :menu_main])}
+            div[class="menu-item"]
+        
+        - if(@is_allowed_to_ecommerce)
+          div[class="row"]
+            div[class="col"]
+              h5 #{I18n.t(:commerce, scope: [:dt_ishop, :cabinet, :menu_main])}
+              hr
+          div[class="row"]
+            = render 'menu_block_ecommerce'
+        
+      div[class="col-md-3 block-border-left"]
+        div[class="menu-block"]
+          div[class="menu-item"]
+            div[class="item-title"]= link_to I18n.t(:logout1, scope: [:dt_breeze, :cabinet]), destroy_user_session_path, :method => :delete

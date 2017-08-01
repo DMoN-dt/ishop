@@ -1,0 +1,19 @@
+# encoding: UTF-8
+
+- ts_icab_ms = [:dt_ishop, :cabinet, :menu_main_seller]
+
+div[class="menu-block block-col block-wd-half menu-sellers"]
+  div[class="menu-item"]
+    div[class="item-title"]= link_to I18n.t(:import_price, scope: ts_icab_ms), import_products_path
+    div[class="item-desc"]#{I18n.t(:import_price_desc, scope: ts_icab_ms)}
+  div[class="menu-item"]            
+    div[class="item-title"]= link_to I18n.t(:prod_update_from_suppliers, scope: ts_icab_ms), with_suppliers_update_products_path
+    div[class="item-desc"]#{I18n.t(:prod_update_from_suppliers_desc, scope: ts_icab_ms)}
+
+div[class="menu-block block-col block-wd-half menu-sellers"]
+  div[class="menu-item disabled"]
+    div[class="item-title"]= link_to I18n.t(:import_own_wrh, scope: ts_icab_ms), '#'
+    div[class="item-desc"]#{I18n.t(:import_own_wrh_desc, scope: ts_icab_ms)}
+  div[class="menu-item disabled"]            
+    div[class="item-title"]= link_to I18n.t(:prod_update_from_own_wrh, scope: ts_icab_ms), '#'
+    div[class="item-desc"]#{I18n.t(:prod_update_from_own_wrh_desc, scope: ts_icab_ms)}

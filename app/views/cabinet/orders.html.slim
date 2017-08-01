@@ -1,0 +1,63 @@
+# encoding: UTF-8
+
+- ts_ord = [:dt_ishop, :orders]
+
+div[class="cabinet-mainpage"]
+  div[class="page-block padding-more"]
+    div[class="dyna-frame" id="dynaframe_orders_list" data-url="#{request.original_fullpath}"]
+      div[id="dynaframe_orders_list_content" class="dyna-frame-content"]
+        h1 #{(@title.present?) ? @title : t(:orders, scope: ts_ord)}
+        div[class="page-menu"]
+          - path = orders_cabinet_index_path
+          <a href="#{path}/new" #{(@list_type != 'new') ? '' : 'class=active'}>#{t(:orders_new, scope: ts_ord)}</a>
+          <a href="#{path}/wait_pay" #{(@list_type != 'wait_pay') ? '' : 'class=active'}>#{t(:orders_wait_pay, scope: ts_ord)}</a>
+          <a href="#{path}/wait_delivery" #{(@list_type != 'wait_delivery') ? '' : 'class=active'}>#{t(:orders_wait_delivery, scope: ts_ord)}</a>
+          <a href="#{path}/delivered" #{(@list_type != 'delivered') ? '' : 'class=active'}>#{t(:orders_delivered, scope: ts_ord)}</a>
+          <a href="#{path}/cancelled" #{(@list_type != 'cancelled') ? '' : 'class=active'}>#{t(:orders_cancelled, scope: ts_ord)}</a>
+          <a href="#{path}/archive" #{(@list_type != 'archive') ? '' : 'class=active'}>#{t(:orders_archive, scope: ts_ord)}</a>
+          <a href="#{path}/all" #{(@list_type != 'all') ? '' : 'class=active'}>#{t(:orders_all, scope: ts_ord)}</a>
+        
+        - if(@orders.present? && (@orders.size > 0))
+          div[class="orders-list-lite t-table t-collapse"]
+            - @orders.each do |order|
+              = render 'orders/table_order_info', order: order
+            
+            div[class="page_pagination"]
+              = will_paginate @orders, :container => false
+        - elsif(@list_type == 'new')
+          p #{t(:new_orders_not_found, scope: ts_ord)}
+        - else
+          p #{t(:orders_not_found, scope: ts_ord)}
+
+
+javascript:
+  function orders_list_onclick(event){
+    etarget = $(event.target);
+    if(etarget.is(".order-items .product .btn-delete")){
+      prod = etarget.parents(".product:first");
+      oitem_id = prod.attr("data-product-uid");
+      oid = prod.parents("div[data-order-id]:first").attr('data-order-id')
+      panel = prod.parents(".order-items:first");
+      sq_params = {'frame_id': null, 'wait_block': panel.attr("id"), 'handler_func': 'fn_wnd_need_orders_list_update', 'no_status_ok': true, 'd_order_uid': oid, 'd_item_uid': oitem_id};
+      window['OnFlyEG_QueryUrl'](panel.attr("id"), '/orders/change/delete_item', 'post', 'json', null, sq_params);
+      event.preventDefault();
+    }
+  }
+  
+  window['need_orders_list_update'] = function (ret,panel_id,form_id,b_delayed,query,ret_success,data,jqxhr){
+    if(ret_success != null){
+      sq_params = {'frame_id': "dynaframe_orders_list", 'wait_block': "dynaframe_orders_list", 'handler_func': window['on_orders_list_updated'], 'no_status_ok': true, 'd_order_uid': "#{@order_uid}"};
+      window['OnFlyEG_QueryUrl']("cabinet_mainpage", null, 'get', 'html', null, sq_params);
+    }
+  }
+  
+  window["orders_list_onload"] = function (page_frame){
+    $(document).on("click", orders_list_onclick);
+  }
+  
+  window["orders_list_teardown"] = function (page_frame){
+    $(document).off("click", orders_list_onclick);
+  }
+  
+  $(document).on("ready turbolinks:load", window["orders_list_onload"]);
+  $(document).on("turbolinks:before-cache", window["orders_list_teardown"]);

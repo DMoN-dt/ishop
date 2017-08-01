@@ -1,0 +1,120 @@
+// Place all the styles related to the cabinet controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+header .menu.menu-fixed-top .fix_logo {
+	position: absolute; top: 0; left: -160px; padding: 1rem 60px; height: 100%;
+	a {text-decoration: none; color: #e3e3e3;}
+	a .fless {font-size:70%;}
+	background-image: image_url('logo_sm_grey.png'); background-repeat:no-repeat; background-position: 0 7px;
+}
+
+header .menu .navbar-toggler-icon {
+	width: 1.2em;
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+header #top_search_form button {
+	background-image: image_url('btn_search.png'); background-repeat: no-repeat; background-position: center;
+}
+
+
+header .menu-mobile .navbar.navbar-inverse .navbar-toggler-icon {
+    height: 1.7em;
+}
+
+header .menu-mobile .mobile_logo {
+	line-height: inherit;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+	pointer-events: none;
+}
+
+header .menu-mobile .mobile_logo a {
+	display: inline-block; height: 100%;
+	background-image: image_url('logo_sm_grey.png'); background-repeat:no-repeat; background-position: 0 0;
+	padding-left: 60px;
+    padding-top: 9px;
+    color: #e3e3e3;
+	
+	.fless {font-size:70%;}
+}
+
+.btn-print, .btn-print:active, .btn-print.active {background-image: url(#{asset_path('btn_print_sm.svg')});}
+.btn-print {
+	background-repeat:no-repeat; background-position: 8px center;
+	padding-left: 37px;
+}
+
+.btn-download, .btn-download:active, .btn-download.active {background-image: url(#{asset_path('btn_dwnld_sm.svg')});}
+.btn-download {
+	background-repeat:no-repeat; background-position: 8px center;
+	padding-left: 37px;
+}
+
+.btn-edit {
+	background-image: url(#{asset_path('btn_edit.svg')}); background-repeat:no-repeat; background-position: center; background-color: transparent;
+	border: 1px solid #c0c0c0; border-radius: 4px;
+	width: 24px; height: 24px; margin:0 .5rem;
+}
+
+.btn-edit:hover, .btn-edit:focus, .btn-edit:active {border-color: #007ad4;}
+
+
+.wait_ajax {
+	display:    none;
+	position:   fixed;
+	z-index:    1000;
+	top:        0;
+	left:       0;
+	height:     100%;
+	width:      100%;
+	background: rgba( 255, 255, 255, .8 ) 
+				url(#{asset_path('ajax-loader-blue.gif')}) 
+				50% 50% 
+				no-repeat;
+	opacity: 0.80;
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 80);
+	filter: alpha(opacity = 80);	
+}
+
+.wait_ajax.on-page {position: fixed;}
+.wait_ajax.on-block {position: absolute;}
+
+
+.nav-tabs.tabs-transparent {
+	.nav-link.active, .nav-item.show .nav-link {background-color: transparent;}
+}
+
+.nav-tabs.tabs-noborder {
+	border: 0;
+	.nav-link.active, .nav-item.show .nav-link {border-color: transparent;}
+	.nav-link:focus, .nav-link:hover {border-color: transparent;}
+	.tab-content {border: 0;}
+}
+
+.fields-table {
+	.field-label {float:left; padding-right: 1rem; min-width: 7rem;}
+	.field-label.w-edit {margin-top: 4px;}
+}
+
+
+
+/* Extra-Small size */
+@media only screen and (max-width: 767px) {
+	.list-flex .list-item {max-height: 142px; height: auto; width: auto; display: block;}
+}
+
+
+/* From Medium size (from Tablets) */
+@media only screen and (min-width: 768px) {
+	.list-flex {
+		display: -webkit-box !important; display: -ms-flexbox !important; display: flex !important;
+		.list-item {margin: .5rem;}
+	}
+}

@@ -1,0 +1,22 @@
+# encoding: UTF-8
+
+- if(!defined?(customers))
+  - customers = @customers
+
+- if(customers.present?)  
+  - safeid_params = Customer.prepare_make_safe_id
+  
+  select[class="custom-select" name="customer_select" required]
+    - customers.each do |customer|
+      - name = customer.pub_name
+      - org_type = nil
+      
+      - if(customer[:customer_type] == CUSTOMER_TYPE_FIZ_LICO)
+        - org_type = ORGANIZATION_TYPE_FIZ_LICO
+      - elsif(customer[:customer_legal_info].present?)
+        - if(customer[:customer_legal_info]['orgtype'].present?)
+          - orgtype = customer[:customer_legal_info]['orgtype'].to_i
+      
+      - if(!org_type.nil?)
+        - name = Document.name_and_type_lite(200, false, name, org_type)
+      <option value="#{Customer.pub_safe_uid(safeid_params, customer.id, true)}" #{(@selected_customer_id == customer.id) ? 'selected' : ''}>#{name}</option>

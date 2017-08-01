@@ -1,0 +1,2 @@
+class SellerWarehouse < ApplicationRecord
+end

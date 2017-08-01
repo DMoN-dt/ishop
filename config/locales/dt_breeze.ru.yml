@@ -1,0 +1,632 @@
+---
+ru:
+  time:
+    formats:
+      long_wo_year: "%d %B, %H:%M"
+      date_yy: "%d.%m.%y"
+      date_yyyy: "%d.%m.%Y"
+  
+  recaptcha:
+    errors:
+      verification_failed: "Проверка reCAPTCHA не пройдена, пожалуйста попробуйте снова."
+      recaptcha_unreachable: "Упс... не удаётся проверить reCAPTCHA, сервис не отвечает. Пожалуйста попробуйте снова."
+  
+  dt_breeze:
+    tzone_name:
+      moscow_short: (мск)
+    login:
+      header_sign_in: Вход
+      header_sign_up: Регистрация
+      header_recover_pass: Восстановление пароля
+      header_resend_confirm: Повторить подтверждение e-mail
+      header_resend_unlock: Инструкция по разблокировке
+      header_waiting_confirm: Ожидается подтверждение учётной записи
+      btn_sign_in: Войти
+      btn_sign_up: Зарегистрироваться
+      btn_recover_pass: Восстановить
+      btn_resend_confirm: Выслать повторно
+      btn_resend_confirmation: Повторить отправку подтверждения
+      btn_resend_unlock: Выслать повторно
+      a_login: Логин (e-mail)
+      a_email: Ваш E-mail
+      password_min_len: "(минимум %{tnum} символов)"
+      recover_passsword: Восстановить пароль
+      sent_confirm_mail: На указанный при регистрации адрес электронной почты отправлено сообщение со ссылкой для подтверждения.
+      no_mail_check_spam: Если письма нет, возможно оно попало в папку Спам.
+      your_account_blocked: Ваша учётная запись была заблокирована
+    cabinet:
+      home_title: Личный кабинет
+      welcome: Добро пожаловать!
+      return_to_cabinet: Вернуться в Кабинет
+      back_to_cabinet: Назад в Кабинет
+      logout1: Выход
+      
+      menu_crumb:
+        profile: Профиль пользователя
+        profile_edit: Редактирование
+      
+      profile:
+        title_user_profile: Профиль пользователя
+        header_user: Пользователь
+        user_name: Имя
+        user_lastname: Фамилия
+        user_middlename: Отчество
+        user_sex: "Пол:"
+        user_sex_male: Мужской
+        user_sex_female: Женский
+        user_man: Мужчина
+        user_woman: Женщина
+        user_sex_undefined: не известен
+        user_email: E-mail
+        user_phone: Телефон
+        user_change_password: Изменить пароль
+        user_last_visit: "Последний вход:"
+        customer_info: Информация о покупателе
+        edit_user_info: Информация о пользователе
+        edit_btn_back_profile: Вернуться в профиль
+        msg_name_required: Необходимо указать Имя.
+        msg_sex_required: Необходимо указать Пол для корректного обращения к Вам.
+        msg_email_bad: E-Mail указан с недопустимыми символами.
+        msg_email_required: Не указан E-Mail для информирования о состоянии заказа.
+        msg_phone_required: Не указан Телефон для связи с вами.
+        msg_legal_name_required: Не указано Наименование.
+        msg_contact_name_required: Не указано Имя персоны для контактов.
+        please_introduce_yourself: Для успешного завершения регистрации, пожалуйста представьтесь
+        how_can_call_you: "Как к Вам обращаться ?"
+        communication_ways: "Способы общения и информирования о состоянии заказов:"
+        
+        addr_country: Страна
+        addr_zipcode: Почтовый индекс
+        addr_region: Регион (область, край, республика)
+        addr_city: Город (населённый пункт)
+        addr_street: Улица
+        addr_house: Дом
+        addr_apartment: Квартира
+        addr_office: Офис
+      
+    buttons:
+      next: Далее
+      back: Назад
+      continue: Продолжить
+      repeat: Повторить
+      confirm: Подтвердить
+      cancel: Отмена
+      save: Сохранить
+      edit: Редактировать
+      change: Изменить
+      delete: Удалить
+      proceed_to_pay: Перейти к оплате
+      
+    messages:
+      Error: Ошибка
+      error_unknown: Произошла неизвестная ошибка
+      access_denied: Доступ запрещён!
+      item_not_found: Элемент не найден!
+      time_op: время обработки
+      seconds: секунд
+      op_rows: обработано %{cnt} строк
+      Op_rows: Обработано %{cnt} строк
+      of_found: от найденных
+      repaired: исправлено
+      info_hidden: Информация скрыта
+      undefined: не известно
+      undef: н/о
+      is_free: бесплатно
+      must_confirm: Требуется подтверждение операции.
+      unable_to_save_changes: "Не удалось сохранить изменения !"
+      no_changes_made: "Изменения не произведены !"
+      required_field: "Обязательно для заполнения"
+    mails:
+      first_greetings_noname: "Здравствуйте!"
+      first_greetings: "%{tname}, здравствуйте!"
+
+      btn_confirm_email: Подтвердить почтовый адрес
+      
+      footer_sincelerly: С уважением
+      footer_administrator: администрация сайта
+      footer_tech_support: служба технической поддержки
+      footer_call_us: По вопросам звоните
+      footer_write_us: или пишите на
+      
+      user_subj_welcome: "Добро пожаловать в Личный кабинет %{tsite} !"
+      user_subj_mail_change: "Изменение адреса электронной почты (%{tsite})"
+      user_confirm_email_html: "<p>Вы получили данное сообщение, потому что этот адрес электронной почты был использован в регистрации на сайте %{tsite}</p><br><p>Для подтверждения адреса электронной почты, перейдите по ссылке:</p>"
+      
+      you_are_welcome: "Добро пожаловать в личный кабинет сайта %{tsite} !"
+
+
+  dt_ishop:
+    buttons:
+      import: Импортировать
+      import_prods: Импортировать товары
+      add_groups_and_import_all: Добавить группы и импортировать весь товар
+      prod_import_add_groups_and_continue: Добавить группы и продолжить импорт
+      save_imported_prods: Сохранить импортированные товары
+      apply_imported_wo_groups: Принять импорт товаров без создания групп
+      apply_imported_prods: Принять импорт товаров
+      add_customer: Добавить информацию о покупателе
+      add_delivery_loc: Добавить пункт доставки
+    
+    messages:
+      error_on_save: Произошла ошибка при сохранении изменений.
+      of_imported: от импортируемых
+      import_func_notfound: Указанная в настройках поставщика Функция импорта не существует!
+      auto_insert_can_edit_later: Все указанные сведения будут автоматически подставляться в форму заказа и Вы сможете в ней их редактировать.
+      recommend_accurate_info: Рекомендуем сохранять точные сведения о себе (включая № квартиры) только в моменты оформления заказов.
+    
+    cabinet:
+      customer_code: Код клиента
+      customer_code_desc: При безналичной оплате обязательно указывайте свой Код клиента в назначении платежа для правильной идентификации платежей.
+
+      menu_crumb:
+        customers: Покупатели
+        customer: Покупатель
+        customer_new: Новый покупатель
+        customer_edit: Редактирование покупателя
+        destination: Место доставки
+        destination_new: Новое место
+        destination_edit: Редактирование места доставки
+        orders: Заказы
+        order_cancellation: Отмена заказа
+        payinv_id: "Счёт "
+        commerce: Торговля
+        commerce_import_supp_goods: Импорт товаров поставщика
+        commerce_prod_update_from_suppliers: Обновление товарами от поставщиков
+      
+      menu_main:
+        cart: Моя корзина
+        cart_desc: Срок хранения товаров в корзине ограничен
+        orders: Заказы
+        orders_desc: Просмотр новых, выполняемых и архивных заказов
+        payments: Платежи и баланс
+        payments_desc: Состояния счетов, бонусы и способы оплаты
+        profile: Мой профиль
+        profile_desc: Личная информация и контакты пользователя
+        discounts: Мои скидки
+        discounts_desc: Доступные Вам скидки и бонусы
+        commerce: Торговля
+        commerce_desc: Управление торговлей на сайте
+      
+      menu_main_seller:
+        import_price: Импорт от поставщиков
+        import_price_desc: Импорт наличия, цен и описания товаров от поставщиков
+        prod_update_from_suppliers: Обновление товарами поставщиков
+        prod_update_from_suppliers_desc: Обновление товаров на продажу информацией, полученной из импорта поставщиков
+        import_own_wrh: Импорт своего наличия
+        import_own_wrh_desc: Импорт наличия, цен и описания товаров на собственных складах
+        prod_update_from_own_wrh: Обновление своими складами
+        prod_update_from_own_wrh_desc: Обновление товаров на продажу информацией, полученной из импорта наличия на собственных складах
+      
+      profile:
+        header_customers: Информация о покупателе
+        header_customer: Покупатель
+        header_customer_edit: Редактирование покупателя
+        header_new_customer: Новый покупатель
+        header_delete_customer: Удаление покупателя
+        header_destinations: Места доставки
+        header_destination: Место доставки
+        header_destination_edit: Редактирование места доставки
+        msg_country_not_specified: Не указана Страна назначения.
+        msg_region_not_specified: Не указан Регион (область, край, республика).
+        msg_city_not_specified: Не указан Город (населённый пункт).
+        msg_new_destination_created: Место доставки успешно добавлено
+        msg_destination_updated: Место доставки успешно обновлено
+        msg_new_customer_created: Покупатель успешно создан
+        msg_customer_updated: Информация о покупателе успешно обновлена
+        msg_customer_deleted: 'Удаление покупателя "%{ttext}" выполнено.'
+        msg_destination_deleted: Место доставки удалено.
+        msg_destination_erased: Место доставки очищено при удалении.
+        customer_delete_confirm: "Пожалуйста подтвердите удаление покупателя"
+        destination_delete_confirm: "Пожалуйста подтвердите удаление места доставки"
+        set_default_for_customer: Использовать по-умолчанию для данного покупателя
+
+    ecommerce:
+      return_to_ecommerce_cabinet: Вернуться в Кабинет
+      back_to_ecommerce_cabinet: Назад в Кабинет
+      back_to_ecommerce_cabinet_desc: Назад в раздел Торговли
+      
+      update_seller_goods: Обновить товары в продаже
+      prod_update_from_suppliers: Обновление товарами от поставщиков
+      prod_update_results: Результаты обновления
+      
+      prod_import_from_suppliers: Импорт товаров от поставщика
+      prod_import_prepare: Подготовка к импорту товаров
+      prod_import_found: Найдено товаров для импорта
+      prod_import_no_avail_cnt: Товаров без информации о наличии
+      prod_import_zero_avail_cnt: Товаров с нулевым наличием
+      prod_imported_to_tmp_table_all: Все найденные товары импортированы во временную таблицу
+      prod_imported_to_tmp_table_cnt: Товаров, найденных и импортированых во временную таблицу
+      prod_imported_prods: Импортируемых товаров
+      prod_not_imported: Не импортировано товаров
+      prod_imported_save_errors: Ошибки при сохранении товаров
+      import_more_goods: Импорт ещё товаров
+      import_results: Результаты импорта
+      import_results_to_update_html: Для обновления информации на сайте, нажмите &laquo;Сохранить импортированные товары&raquo;
+      import_results_to_update_avail_cnt_html: Для обновления доступного количества, цен и параметров у товаров в продаже, перейдите в соответствующий раздел.<br>Рекомендуем выполнять обновления после импорта всех поставщиков и собственного наличия.
+      prod_import_groups_results: Результаты импорта групп товаров
+      prod_import_results: Результаты импорта товаров
+      prod_import_nogroups_found: Группы не найдены в импортируемом файле !
+      prod_import_nonew_groups_found: Новых групп не найдено
+      prod_import_groups_found: Найдено групп в файле
+      prod_import_groups_prev_found: Из обнаруженных групп найдены на первом этапе
+      prod_import_groups_found_more: Дополнительно найдены на данном этапе
+      prod_import_groups_list: Список групп, участвующих в импорте
+      prod_import_exist_groups: Из них существующих групп
+      prod_import_need_create_groups: Потребуется создать группы товаров
+      prod_import_need_add_import_groups: Потребуется добавить в список импортируемых
+      prod_import_need_add_market_groups: Потребуется добавить в глобальный список интернет-магазина
+      prod_import_supp_wrh_changes: На складах поставщика произошли следующие операции
+      prod_import_no_changes: Обновлений в товарах поставщика не выявлено.
+      prod_import_skipped_no_avail: Пропущено импортируемых товаров без цен и наличия
+      prod_imported_price_inc: У %{cnt} товаров выросла цена в среднем на %{pavg} %, максимальный рост %{pmax} %.
+      prod_imported_price_dec: У %{cnt} товаров снизилась цена в среднем на %{pavg} %, максимальное снижение %{pmax} %.
+      
+      prod_import_groups_toadd: Групп для добавления
+      prod_import_groups_exists: Обнаружено существующих групп товаров
+      prod_import_groups_noabsent: Отсутствующих групп нет.
+      prod_import_groups_noop: Импорт не произведён!
+      prod_import_groups_new: Из них %{cnt} - ранее отсутствующие группы импорта.
+      prod_import_groups_prods_allowed: Импорт товаров в новые группы разрешён.
+      prod_import_groups_prods_restrict: Импорт товаров в новые группы запрещён и производиться не будет. Требуется вручную установить разрешение на каждую группу.
+      prod_import_groups_created: Создано групп товаров
+      prod_import_groups_visible: Новые группы разрешены к показу посетителям.
+      prod_import_groups_hidden: Новые группы не будут отображаться посетителям. Требуется вручную установить разрешение на каждую группу.
+      prod_import_groups_no_new: Новые группы товаров не создавались.
+      prod_import_groups_no_global: Создание глобальных групп интернет-магазина запрещено
+      prod_import_groups_rejected: Отклонено групп
+      prod_import_groups_errors: Произошли ошибки во время импорта групп!
+      prod_import_groups_stat: Из %{cnt} импортируемых групп существует - %{exists_cnt}, добавлено - %{created_cnt}
+      prod_import_groups_added: Добавлено групп импорта
+      prod_import_groups_success: Импорт групп выполнен успешно
+      
+      warehouse_ID: Склад ID
+      general_warehouse: Основной склад
+      warehouse_upd_prods_cnt: Обновлено товаров на складе
+      warehouse_new_prods_cnt: Добавлено новых товаров
+      warehouse_no_prod_changes: Не добавлено и не обновлено ни одного товара.
+      warehouse_op_prods: Обработано существующих товаров
+      warehouse_prods_tobe_linked: Товаров, ожидающих привязки к товарам продавца
+      warehouse_prods_unlinked: Товаров, обособленных от товаров продавца
+      warehouse_prods_bad_link: Товаров с ошибками в связях с товарами продавца
+      
+      all_suppliers: Все поставщики
+      a_supplier: Поставщик
+      select_supplier: Выберите поставщика
+      add_new_goods: Добавлять новые товары для продажи
+      update_exist_goods: Обновлять существующие товары
+      update_available: обновить доступное количество
+      update_available_desc: Обновление доступного количества товара проводится с учётом всех активных поставщиков, вне зависимости от выбранного на данном этапе поставщика.
+      update_in_stock_cnt: обновить собственное наличие
+      update_in_stock_cnt_desc: Если Вы уже загрузили свежую базу собственного наличия, но ещё не обновили товары информацией из неё, тогда попутное обновление наличия у существующих товаров сократит время на пересчёт количества.
+      update_prices: обновить цены
+      update_name: обновить наименование, если разрешено
+      update_info: обновить свойства товара, если разрешено
+      no_import_suppliers: У Вас нет ни одного поставщика, по которому разрешён импорт.
+      
+      updated_avail_full: Товаров, которым обновлено наличие на складах и у поставщиков
+      updated_avail_in_stock: Товаров, которым обновлено наличие на собственных складах
+      updated_avail_suppliers: Товаров, которым обновлено доступное количество на складах поставщиков
+      update_was_not_performed: Обновление доступного количества товаров не выполнялось !
+      updated_nothing: Ни у одного товара не обновлено доступное количество (видимо, изменений не выявлено).
+      updated_suppliers_prices: "Пересчитаны цены для поставщиков: %{tcnt1} (%{tcnt2})"
+      update_suppliers_prices_not_perform: "Пересчёт цен поставщиков не потребовался (видимо, новых цен не обнаружено)."
+      not_calc_seller_prices: "Не удалось рассчитать цены на товары поставщиков: %{tcnt}"
+      updated_instock_prices: "Пересчитаны цены на своих складах: %{tcnt1} (%{tcnt2})"
+      update_instock_prices_not_perform: "Пересчёт цен на своих складах не потребовался (видимо, новых цен не обнаружено)."
+      not_calc_instock_prices: "Не удалось рассчитать цены на товары в наличии: %{tcnt}"
+      inserted_prods_from_suppliers: Создано новых товаров на продажу
+      no_new_prods_from_suppliers: Новые товары на продажу не добавлялись.
+      new_prods_needs_upd_links: Требуется обновить связи для новых товаров на продажу
+      updated_null_prods_links: Новых связей товаров поставщика с товарами на продажу
+      cleared_notexist_prods_links: Очищено связей к не существующим кодам товаров на продажу
+      repaired_bad_prods_links: Исправлены обнаруженные ошибки связей с товарами на складах поставщика
+    
+    products:
+      avail_lvl_very_little: Очень мало
+      avail_lvl_little: Мало
+      avail_lvl_alot: Много
+      avail_lvl_too_much: Очень много
+    
+    orders:
+      orders_new: Новые заказы
+      orders_wait_pay: Ожидают оплаты
+      orders_wait_delivery: Ожидают доставки
+      orders_delivered: Доставленные
+      orders_cancelled: Отменённые
+      orders_archive: Архивные
+      orders_all: Все заказы
+      orders_not_found: В данном разделе заказов не найдено.
+      new_orders_not_found: Новых, ещё не рассмотренных заказов нет.
+      no_access: У вас нет доступа к содержимому заказа
+      not_found_with_item: Не найден заказ или товар в заказе !
+      orders: Заказы
+      order_id: Заказ №
+      cancelled: отменён
+      waiting_pay: ожидается платёж
+      in_processing: Заказ ещё обрабатывается....
+      order_price: Стоимость
+      is_being_specified: "уточняется..."
+      after_agreement: "после обработки заказа"
+      detail_order_info: Подробнее
+      goods_in_stock_reserved_until: Товар из наличия забронирован до
+      goods_in_stock_were_reserved_until: Товар из наличия был забронирован до
+      paysumm_above: от
+      paysumm_full: полностью
+      delivery_cost_to_carrier: Стоимость отправки в ТК
+      delivery_cost: Стоимость доставки
+      delivery_cost_waiting_calc: Нужно указать стоимость доставки
+      total_products_price: Всего товаров на сумму
+      total_order_price: Итоговая стоимость заказа
+      price_contain_express_html: "В цены товаров включена наценка за экспресс-покупку %{percents} % от суммы заказа"
+      price_contain_express_cost_html: "В цены товаров включена наценка %{price} за экспресс-покупку (%{percents} % от суммы заказа)"
+      price_contain_delivery_html: "В цены товаров включена стоимость доставки %{price}"
+      determining_price: уточняем...
+      order_comments: Комментарии к заказу
+      remove_from_order: Убрать из заказа
+      product_id: ID товара
+      not_for_sale: не продаётся!
+      in_stock_cnt: В наличии
+      not_available: Нет в наличии
+      in_warehouses: на складах
+      from_suppliers: У поставщиков
+      no_from_suppliers: Нет у поставщиков
+      price: цена
+      in_warehouse: на складе
+      supp_prod_updated: изменено
+      receiving_way: Способ получения заказа
+      parcel_delivery_price: Стоимость доставки
+      parcel_shipment_price_to_postoffice: Стоимость отправки до Почты
+      parcel_shipment_price_to_carrier: Стоимость отправки до ТК
+      order_wait_agree_html: "Наш менеджер может связаться с Вами для уточнения деталей заказа и способа его получения. <br> Вскоре на адрес электронной почты, указанный в заказе, придёт сообщение со ссылкой для оплаты."
+      list_payments_invoices: Выставленные счета и платежи
+      no_payments: Платежи по данному заказу не поступали
+      not_paid: Заказ не оплачен
+      paid: Оплачено
+      refunded: Возвращено
+      order_moderation: Управление заказом
+      wait_prepay_summ: Ожидается предоплата в сумме
+      order_cancelled: Заказ отменён %{tdate}
+      not_agreed: Заказ не утверждён
+      msg_waiting_prepay: "Заказ ожидает поступления предоплаты."
+      msg_not_prepaid_disallowed_accept: "Нельзя принять в работу заказ без предоплаты !"
+      msg_not_agreed: "Заказ ещё не утверждён !"
+      msg_already_accepted: "Заказ уже был принят"
+      accept_confirm: "Пожалуйста подтвердите принятие в работу заказа №"
+      order_accepted: Заказ принят в работу %{tdate}
+      msg_already_cancelled: "Заказ уже был отменён"
+      msg_unable_cancel_finished: "Нельзя отменить завершённый или удалённый заказ !"
+      msg_unable_cancel_received: "Нельзя отменить заказ, который уже получен покупателем !"
+      msg_must_select_order_items: "Необходимо указать элементы для исключения из заказа !"
+      msg_unable_to_remove_items: "Статус заказа не позволяет исключать из него элементы !"
+      msg_order_recalc_update: "Заказ был пересчитан. Необходимо обновить страницу!"
+      empty_order_cancel_it: "Заказ пустой, его следует отменить."
+      cancel_confirm: "Пожалуйста подтвердите отмену заказа №"
+      cancel_item_confirm: "Пожалуйста подтвердите отмену в заказе №"
+      cancellation_in_order: "Отмена в заказе №"
+      cancellation_entire_order: "Отмена заказа №"
+      order_cancel_entire: Отменить весь заказ целиком
+      order_cancel_items: Убрать некоторые позиции из заказа
+      order_cancel_pending: Подана заявка на отмену всего заказа
+      order_cancel_items_pending: Подана заявка на отмену части заказа
+      order_cancel_please_wait: Пожалуйста подождите ответа до %{tdate}
+      
+      buttons:
+        agree: Утвердить заказ
+        accept: Принять заказ в работу
+        cancel: Отменить заказ
+      
+      item_state:
+        customer_received: Получен
+        written_in_stock: Оприходован
+        delivered_to_customer: Доставлен
+        shipped_to_customer: Отправлен
+        shipped_from_supplier: Отправлен поставщиком
+        shipped_from_warehouse: Отправлен со склада
+        bought_from_supplier: Выкуплен
+        in_work: В работе
+        in_queue: В очереди
+        query_remove: Запрос удаления...
+        item_removed: Удалён из заказа
+      
+      item_changes:
+        remove_repeated: Запрос на удаление был отправлен ранее. Ожидайте ответа...
+        remove_denied: Запрос на удаление был отклонён, т.к. на данный момент убрать товар из заказа уже нельзя!
+        removed_already: Товар уже убран из заказа.
+    
+    delivery_to:
+      our_office_or_shop: Самовывоз из нашего офиса
+      transp_company: Доставка транспортной компанией
+      pickpoint: Самовывоз из пункта выдачи товаров
+      post_office: Доставка Почтой России
+      addr_region: область
+    
+    payments:
+      select_payment_method: Необходимо выбрать способ оплаты !
+      payment_order: Оплата заказа
+      payment_order_num: Оплата заказа № %{tnum}
+      payment_payinvoice: Оплата по счёту
+      payment: Оплата
+      order: Заказ
+      customer: Покупатель
+      item_num_date: "№ %{tnum} от %{tdate}"
+      line_item_html: "№ %{tnum}%{tdoc} на сумму %{tsumm} %{status}"
+      by_order: "заказ № %{tnum}"
+      by_pinv: "счёт № %{tnum}"
+      list_of_payments: Перечень сформированных платёжек
+      pm_number: №, дата платёжки
+      pm_doc: Основание
+      pm_amount: Сумма
+      pm_pay_type: Способ оплаты
+      pm_status: Статус
+      pm_status_return_confirmed: Возврат подтв.
+      pm_status_returned_at: Возврат
+      pm_status_must_return: К возврату
+      pm_status_pay_acquired: Платёж поступил
+      pm_status_deferred_paid: Списание
+      pm_status_deferred: Средства заморожены
+      pm_status_paid_at: Оплачено
+      pm_status_not_paid: Не оплачено
+      pm_pay_type_cash: Наличные
+      pm_pay_type_bank_card: Картой
+      pm_pay_type_online: Онлайн
+      pm_pay_type_bank_invoice: Через банк
+      pm_pay_type_cod: При получении
+      pm_pay_type_from_account: С баланса
+      
+    payinvoices:
+      parcel_delivery_price: Расходы на доставку
+      parcel_delivery_type_to_tk: до терминала ТК в месте назначения
+      parcel_shipment_price_to_postoffice: Расходы на доставку до Почты
+      parcel_shipment_price_to_carrier: Расходы на доставку до транспортной компании
+      list_of_payinvoices: Перечень сформированных счетов
+      not_paid: Не оплачен
+      pi_number: № счёта
+      pi_date: Создан
+      pi_summ: Сумма
+      pi_paydate: Оплата
+    
+    balance:
+      payments_and_balance: Платежи и баланс
+      history: История баланса
+      payments: Платежи
+      pay_invoices: Счета
+      item_num_date: "№ %{tnum} от %{tdate}"
+      ts_number: №, дата операции
+      ts_doc: Основание
+      ts_amount: Сумма
+      ts_money_receipts: Поступление средств
+      ts_salary: Поступление вознаграждения
+      ts_purchase: Оплата покупки
+      ts_refund_to_balance: Возврат средств на баланс
+      ts_refund_to_payer: Возврат средств
+      ts_money_withdrawal: Выплата денег с баланса
+      ts_taxes_payment: Уплата налогов
+      ts_tariff_payment: Платёж по тарифу
+      ts_monthly_payment: Ежемесячный платёж
+      ts_money_transfer: Перевод на баланс № %{tnum}
+      positive: положительный
+      negative: отрицательный
+      no_customers_no_info: Информация не доступна, т.к. у пользователя нет покупателей.
+      no_balance_history: История баланса отсутствует.
+      no_payments: Нет доступных платежей для отображения.
+      no_payinvoices: Нет доступных счетов для отображения.
+      no_access_to_balance_history: У вас нет доступа к истории баланса.
+      no_access_to_payments: У вас нет доступа к истории платежей.
+      no_access_to_payinvoices: У вас нет доступа к счетам.
+      customer: Покупатель
+      current_balance: Текущий баланс
+    
+    pricing:
+      retail_price: Розничная цена
+      retail_price_for_presons: Розничная цена для ФЛ
+      price_for_legals: Цена для юр.лиц и ИП
+      ishop_prices_or_max_supp_and_instock: Загрузка цен ИМ или Макс. цены Поставщиков и Наличия
+    
+    events:
+      order_upd_prods: Изменения в товарах заказа (информации о товарах).
+      order_set_express_price: "Установлена цена экспресс-покупки: %{price}."
+      order_upd_express_price: Обновлена цена экспресс-покупки с %{old_price} на %{new_price}.
+      order_new_prods_price: Обновлена стоимость товаров с %{old_price} на %{new_price}.
+      order_new_delivery_to_carrier_price: Обновлена стоимость отправки до перевозчика с %{old_price} на %{new_price}.
+      order_new_delivery_to_customer_price: Обновлена стоимость доставки до покупателя с %{old_price} на %{new_price}.
+      order_upd_delivery_ready: Изменён статус расчёта доставки с %{old_value} на %{new_value}.
+      order_upd_total_with_delivery_to_customer: Изменено прибавление доставки покупателю к сумме заказа с %{old_value} на %{new_value}.
+      order_new_total_price: Обновлена полная стоимость заказа с %{old_price} на %{new_price}.
+      order_agreed: Заказ согласован %{new_value}.
+      order_upd_prods_cnt: Изменено количество товаров с %{old_value} на %{new_value}.
+      order_upd_express_state: Изменён статус экспресс-покупки с %{old_value} на %{new_value}.
+      order_upd_express_prcnt: Изменён процент наценки экспресс-покупки с %{old_value} на %{new_value}.
+      order_upd_wait_prepay: Изменён статус ожидания предоплаты с %{old_value} на %{new_value}.
+      order_upd_reserved_until: Изменено время бронирования с %{old_value} на %{new_value}.
+      order_set_prepaid_at: Принята предоплата %{new_value}.
+      order_unset_prepaid_at: Снята предоплата от %{old_value}.
+      order_upd_prepaid_at: Изменено время принятия предоплаты с %{old_value} на %{new_value}.
+      order_set_accepted_at: Заказ принят %{new_value}.
+      order_unset_accepted_at: Снято принятие заказа от %{old_value}.
+      order_upd_accepted_at: Изменено время принятия заказа с %{old_value} на %{new_value}.
+      order_upd_prepay_sum: Изменена сумма предоплаты с %{old_value} на %{new_value}.
+      order_set_bought_supplier: Заказ выкуплен у поставщиков %{new_value}.
+      order_unset_bought_supplier: Снят выкуп заказа у поставщиков от %{old_value}.
+      order_upd_bought_supplier: Изменено время выкупа заказа с %{old_value} на %{new_value}.
+      order_set_delivered_taked_to_wrh: Заказ оприходован на склад выдачи %{new_value}.
+      order_unset_delivered_taked_to_wrh: Снято оприходование заказа на складе выдачи от %{old_value}.
+      order_upd_delivered_taked_to_wrh: Изменено оприходование заказа на складе выдачи с %{old_value} на %{new_value}.
+      order_set_part_shippment: Разрешена частичная отправка партиями.
+      order_unset_part_shippment: Запрещена частичная отправка партиями.
+      order_set_shipped_at: Заказ отправлен %{new_value}.
+      order_unset_shipped_at: Снято отправление заказа от %{old_value}.
+      order_upd_shipped_at: Изменено время отправления заказа с %{old_value} на %{new_value}.
+      order_set_delivered_at: Заказ доставлен %{new_value}.
+      order_unset_delivered_at: Снята доставка заказа от %{old_value}.
+      order_upd_delivered_at: Изменено время доставки заказа с %{old_value} на %{new_value}.
+      order_set_received_at: Получен покупателем %{new_value}.
+      order_unset_received_at: Снято получение покупателем от %{old_value}.
+      order_upd_received_at: Изменено время получения покупателем с %{old_value} на %{new_value}.
+      order_set_receive_confirmed: Получение подтверждено покупателем.
+      order_unset_receive_confirmed: Снято подтверждение получения покупателем.
+      order_set_wait_fdocs: Установлено ожидание закрывающих документов.
+      order_unset_wait_fdocs: Снято ожидание закрывающих документов.
+      order_set_fdocs_received: Закрывающие документы получены %{new_value}.
+      order_unset_fdocs_received: Снято получение закрывающих документов от %{old_value}.
+      order_upd_fdocs_received: Изменено время получения документов с %{old_value} на %{new_value}.
+      order_set_wait_postpay: Установлено ожидание доплаты.
+      order_unset_wait_postpay: Снято ожидание доплаты.
+      order_set_fully_paid: Заказ полностью оплачен %{new_value}.
+      order_unset_fully_paid: Снята полная оплата от %{old_value}.
+      order_upd_fully_paid: Изменено время полной оплаты с %{old_value} на %{new_value}.
+      order_upd_paid_summ: Изменена оплаченная сумма с %{old_value} на %{new_value}.
+      order_set_cancelled: Заказ отменён %{new_value} пользователем %{user_id}.
+      order_unset_cancelled: Снята отмена заказа от %{old_value}.
+      order_upd_cancelled: Изменено время отмены заказа с %{old_value} на %{new_value}.
+      order_set_deleted: Заказ помещён в архив.
+      order_unset_deleted: Заказ возвращён из архива.
+      order_set_finished: Заказ выполнен и закрыт %{new_value}.
+      order_unset_finished: Снято закрытие выполненного заказа от %{old_value}.
+      order_upd_finished: Изменено время закрытия выполненного заказа с %{old_value} на %{new_value}.
+      order_set_contacts_erased: Контактные данные удалены из заказа.
+      order_unset_contacts_erased: Контактные данные не удалены из заказа.
+      order_upd_money_back: Изменена сумма возврата с %{old_value} на %{new_value}.
+      order_set_shipped_from_supp: Заказ отправлен поставщиками %{new_value}.
+      order_unset_shipped_from_supp: Снято отправление заказа от поставщиков от %{old_value}.
+      order_upd_shipped_from_supp: Изменено время отправления заказа от поставщиков с %{old_value} на %{new_value}.
+      order_set_received_from_supp: Заказ получен от поставщиками %{new_value}.
+      order_unset_received_from_supp: Снято получение заказа от поставщиков от %{old_value}.
+      order_upd_received_from_supp: Изменено время получения заказа от поставщиков с %{old_value} на %{new_value}.
+      order_set_pack_for_delivery: Заказ упакован для отправки покупателю %{new_value}.
+      order_unset_pack_for_delivery: Снято упаковывание заказа для отправки покупателю от %{old_value}.
+      order_upd_pack_for_delivery: Изменено время упаковывания заказа для отправки с %{old_value} на %{new_value}.
+      order_upd_cancellations: Измененился список отмены.
+    
+    mails:
+      first_greetings_noname: "Здравствуйте!"
+      first_greetings: "%{tname}, здравствуйте!"
+
+      btn_go_to_order: Перейти к заказу
+      btn_view_order: Посмотреть заказ
+      btn_pay: Оплатить
+      
+      welcome_more_html: "<p>Теперь для Вас будут доступны самые выгодные цены на предлагаемые товары, скидки, бонусы и новости о проводимых акциях.</p>"
+      fill_profile: "Чтобы тратить меньше времени на оформление заказов, заполните свой профиль контактной информацией и предпочитаемым способом доставки."
+      
+      footer_customer_service: служба поддержки клиентов
+      
+      order_subj_placed: "Оформлен новый Заказ № %{tnum}"
+      order_subj_agreed: "Подтверждение Заказа № %{tnum}"
+      order_subj_accepted: "Заказ № %{tnum}: Принят в работу"
+      order_subj_paid: "Заказ № %{tnum}: Поступление оплаты"
+      order_opsubj_new: "Новый Заказ № %{tnum}"
+
+      order_placed_new: "Поступил новый Заказ №"
+      order_created: Заказ создан %{tdate}.
+      order_created_express: Заказ создан %{tdate} в режиме экспресс-покупки без регистрации.
+      order_items_count: "Количество наименований в заказе: %{tcount}."
+      order_delivery_price: Стоимость доставки составляет
+      order_delivery_free: Доставка осуществляется бесплатно.
+      order_you_placed_new: Это информационное сообщение подтверждает, что нам поступил Заказ №
+      order_pending: Ваш заказ сейчас обрабатывается.
+      order_wait_confirm: В ближайшее время мы пришлём письмо с подтверждением заказа и информацией по оплате.
+      order_wait_call: С Вами может связаться наш менеджер для уточнения деталей заказа и способа его получения.
+      order_click_to_pay: Для оплаты заказа, перейдите по ссылке
+      order_agreed_html: Ранее оформленный Заказ № <b>%{tnum}</b> согласован.
+      order_accepted_html: Ранее поступивший Заказ № <b>%{tnum}</b> принят в работу.
+      order_accept_payment: Информируем Вас о поступлении оплаты по Заказу №

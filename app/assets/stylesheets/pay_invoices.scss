@@ -1,0 +1,20 @@
+// Place all the styles related to the pay_invoices controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.payinvoices-list, .payments-list {
+	.intro {margin: 2rem 0 1rem 0;}
+	
+	.list {width: 100%;}
+	.list .t-cell, .list-head .t-cell {text-align: center;}
+	.list .i-summ {min-width: 7rem; text-align: right;}
+	
+	.list-item:hover, .list-item:active, .list-item:focus {text-decoration: none;}
+	.list-head > .t-cell, .list-item > .t-cell {padding: .75rem .5rem;}
+	.list-head {color: #4e4e4e;}
+	.list-item > .t-cell {border-color: #e8e8e8 !important; outline: 1px solid transparent;}
+	.list-item:nth-of-type(odd) {background-color: #f9f9f9;}
+	.list-item:hover {outline: 1px solid #d0d0d0;}
+	.list-item:hover > .t-cell {background-color: #f5f5f5;}
+
+}

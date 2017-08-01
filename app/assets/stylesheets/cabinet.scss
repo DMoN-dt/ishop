@@ -1,0 +1,168 @@
+// Place all the styles related to the cabinet controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cabinet-breadcrumb {
+	padding: .63rem 1.25rem; margin-bottom: 1.25rem;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+.cabinet-mainpage{
+	.page-block {
+		background: #fff;
+		margin-bottom: 1.25rem;
+		box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+		
+		h1 {
+			font-size: 1.2rem;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+		
+		h2 {
+			font-size: 1.05rem;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+		
+		h2.blu {color: #007ad4;}
+		
+		.page-menu {
+			margin-bottom: 1.2rem; margin-top: 1rem;
+			
+			a {margin-right: 1.6rem; border-bottom: solid 3px #f5f5f5;}
+			a:hover, a:active, a:focus {border-bottom-color: #5f9cc7; text-decoration: none;}
+			a.active {border-bottom-color: #e46969;}
+		}
+	}
+	
+	.page-block.padding-more {padding: 1.25rem;}
+	
+	.menu-block{
+		.menu-item {
+			margin: 0 0 .63rem 0;
+			height: 5rem;
+			
+			.item-title {
+				width: 95%;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				text-transform: uppercase;
+				font-weight: bold;
+				font-size: 1.05rem;
+			}
+			
+			.item-desc {
+				color: #929292;
+			}
+		}
+		
+		.menu-item.disabled .item-title a {color: #cecece;}
+
+	}
+	.menu-block.menu-sellers .menu-item {height: 7rem;}
+	.menu-block.menu-sellers .menu-item .item-title {white-space: normal;}
+	
+	.block-col {
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	
+	.user-profile {
+		margin-top: 1.3rem;
+		.fields-table > .field {margin-top: .5rem;}
+		.change-pass {padding: .25rem .75rem; border-width: 1px;}
+		.field.last-visit {font-size: .85rem; margin-top: 1.5rem;}
+	}
+	
+	.user-profile.edit {
+		.buttons {margin-top: 2rem;}
+		.field.sex .radio {display: inline-block; margin-right: 1rem;  margin-left: 1rem;}
+	}
+	
+	.orders-list-lite {
+		width: 100%;
+		.order-cost {text-align: right;}
+	}
+	
+	.order-lite {
+		font-size: .8rem; color: #999;
+		
+		.order-head {background-color: #f0f0f0; padding: .25rem .5rem; margin: 2rem 0 0.3rem 0;}
+		.val {color: #000;}
+		
+		.order-id > .val {font-weight: bold; font-size: 110%;}
+		.order-id .shop-id {color: #888;}
+		.order-date {clear: left; display: block;}
+		.order-cost, .order-prepay {color: #444; float: right;}
+		.order-cost > .val {font-size: 1.1rem; color: #000; font-weight: bold; display: block; clear: both;}
+		.prepay, .prepay .val {color: #d42828;}
+		.prepay .val {font-weight: bold;}
+		.order-reserve {color: #444;}
+		.order-link {margin-left: .5rem;}
+		
+		.order-items {width: 100%;}
+	}
+	
+	.order-lite.not-active {
+		.order-id > .val, .order-cost > .val {color: #888;}
+		.prepay, .prepay .val {color: inherit; font-weight: normal;}
+		.cancel-time {color: #444;}
+	}
+	
+	.order-lite.with-items .order-items.padded {margin-bottom: 2.5rem;}
+	.order-lite.with-items .order-head {margin-bottom: 0;}
+	
+	.order-lite:first-of-type.with-items .order-head {margin-top: 1rem;}
+	
+	.order-totals {
+		.cost-val {font-weight: bold;}
+		.delivery-info {
+			margin-top: 1rem;
+			.receiving_way .info-text {font-weight: bold;}
+			.price .info-texttip {font-size: 80%;}
+		}
+		.comments {
+			.info-text {clear: both; display: block; border: 1px solid #eaeaea; border-radius: 4px; padding: .5rem;}
+		}
+	}
+	
+	.order-totals.mode-moder {margin-bottom: 2.5rem;}
+	
+	.money-receipts {color: #00a03a;}
+	.money-receipts > .i-summ::before {content: '+ ';}
+	.money-payment {color: #da5301;}
+	.money-payment > .i-summ::before, .money-transfer > .i-summ::before, .money-withdrawal > .i-summ::before {content: '- ';}
+	.money-transfer, .money-withdrawal {color: #0026b9;}
+	
+	.customer-balance {
+		.name {margin-right: 1rem; font-weight: 500;}
+		.data {font-weight: bold;}
+	}
+	
+	.customer-balance.positive > .data {color: #00a03a;}
+	.customer-balance.negative > .data {color: #d23b3b;}
+}
+
+/* Small size (until Medium) */
+@media only screen and (max-width: 767px) {
+	.cabinet-mainpage .menu-block .menu-item .item-desc {line-height: 1.2rem;}
+}
+
+
+@media (min-width: 768px) {
+	.block-wd-half {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+	
+	.block-border-left {border-left: solid 1px #e2e2e2;}
+	
+	.cabinet-mainpage{
+		.order-head {height: 4.5rem;}
+	}
+}

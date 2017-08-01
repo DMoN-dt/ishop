@@ -1,0 +1,77 @@
+// Place all the styles related to the customers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.customers {
+	margin-bottom: 1rem;
+	
+	.customer {
+		padding: .3rem .5rem; margin-top: .5rem; margin-bottom: .5rem;
+		border: solid 1px #c0c0c0; border-radius: 4px;
+		font-size: .85rem;
+		text-decoration: none;
+		cursor: pointer;
+		
+		.info-text {color: #333;}
+	}
+	
+	.customer:first-of-type {margin-left: 0;}
+	.customer:hover {border-color: #007ad4;}
+	.customer.active {border-color: #007ad4; border-width: 2px;}
+}
+
+.customers.list-flex {
+	.customer {overflow: hidden; position: relative;}
+	
+	.customer-details {height: 130px; overflow: hidden;}
+	.customer-details::after {
+		content: ' '; font-size: 0;
+		bottom: 0; left: 0; right: 0; top: 100%; margin-top: 0;
+		height: 20px;
+		position: absolute;
+		box-shadow: 0 0 100px 10px #f6f6f6, 0 0 50px 20px #f6f6f6;
+	}
+	
+	.customer-type, .cm-type {display: none;}
+	
+	.cm-name {font-weight: bold; display: block;}
+}
+
+.customer-contacts {
+	input[type='text'], input[type='number'], input[type='tel'], input[type='email'] {
+		max-width: 400px;
+		border-radius: 5px; border: 1px solid #ccc;
+		line-height: 1.33333;
+		padding: .5rem 1rem;
+	}
+	
+	input+input {margin-top: .5rem; margin-bottom: .5rem;}
+	
+	input.clr {clear: both; display: block;}
+	
+	label {margin-bottom: 0;}
+	.form-group {margin-bottom: .7rem; max-width: 400px;}
+	.form-group input {width: 100%;}
+	
+	.form-group-border {border-radius: 5px; border: 1px solid #ccc; padding: 1rem; max-width: 400px; margin-top: 1.2rem;}
+	
+	#individual_addr, #individual_fortk, #legal_person, #legal_addr {margin-left: 0rem;}
+}
+
+.customer-details .customer-type {margin-bottom: .8rem; clear: both;}
+
+.customer-full .customer-details .info-title {font-weight: 500; color: #007ad4;}
+
+.customer-selectbox {margin-top: 1rem; margin-bottom: 1rem;}
+
+
+
+/* Extra-Small size */
+@media only screen and (max-width: 767px) {
+	.customers.list-flex .customer-details {max-height: 130px; height: auto;}
+}
+
+/* From Medium size (from Tablets) */
+@media only screen and (min-width: 768px) {
+	.customers.list-flex .customer {height: 142px; width: 240px; display: inline-block;}
+}

@@ -1,0 +1,2 @@
+class SellerSuppliersOrder < ApplicationRecord
+end

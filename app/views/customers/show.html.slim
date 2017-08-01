@@ -1,0 +1,39 @@
+# encoding: UTF-8
+
+- ts_bcp = [:dt_breeze, :cabinet, :profile]
+- ts_tcp = [:dt_ishop,  :cabinet, :profile]
+- ts_msg = [:dt_breeze, :messages]
+- ts_btn = [:dt_breeze, :buttons]
+
+// Page Title
+- page_header = t(:header_customer, scope: ts_tcp)
+
+- content_for :html_title do
+  |#{page_header} - #{t(:html_title_short_part, scope: [:dt_breeze])}
+
+- customer_uid = Customer.pub_safe_uid(nil,@customer.id.to_i,true,true)
+
+div[class="cabinet-mainpage" id="cabinet_mainpage"]
+  div[class="page-block padding-more"]
+    h1 #{page_header}
+    <!--googleoff: all-->
+    <!--noindex-->
+    div[class="customer-full"]
+      - @as_profile_widgets = true
+      = render 'customer_info', allow_legal_info: @allow_legal_info, allow_contacts: @allow_contacts, customer: @customer, scram_emails: ((@user.nil?) ? true : [@user.email, @user.unconfirmed_email])
+    a[href="#{edit_customer_path(id: customer_uid)}" class="button btn btn-border-4 btn-thin btn-margin-w"] #{t(:edit, scope: ts_btn)}
+    a[href="#{'/customers/' + URI.encode(customer_uid) + '/delete'}" class="button btn btn-border-6 btn-thin btn-margin-w" data-with-ajax="get/json"] #{t(:delete, scope: ts_btn)}
+    // = link_to t(:delete, scope: ts_btn), customer_path(id: customer_uid), :class => "button btn btn-border-6 btn-thin btn-margin-w", "data-with-ajax" => "get/json"
+    
+    p &nbsp;
+    hr
+    h2.blu #{t(:header_destinations, scope: ts_tcp)}
+    - if(@destinations.nil?)
+      a[href="#{new_destination_path(customer_uid: customer_uid)}" class="button btn clr4 btn-thin"] #{t(:add_delivery_loc, scope: [:dt_ishop, :buttons])}
+    - else
+      = render 'destinations/list', destinations: @destinations, link_to: 'edit', customer_uid: customer_uid
+      a[href="#{new_destination_path(customer_uid: customer_uid)}" class="button btn btn-border-4 btn-thin"] #{t(:add_delivery_loc, scope: [:dt_ishop, :buttons])}
+    
+    
+    <!--/noindex-->
+    <!--googleon: all-->

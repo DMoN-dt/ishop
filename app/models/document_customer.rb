@@ -1,0 +1,2 @@
+class DocumentCustomer < Document
+end

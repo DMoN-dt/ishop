@@ -1,0 +1,2 @@
+module GenBrandsHelper
+end

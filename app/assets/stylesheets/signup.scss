@@ -1,0 +1,57 @@
+// Place all the styles related to the cabinet controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.signin_block {
+	max-width: 500px;
+	text-align: left;
+	padding: 25px;
+	
+	.nav-tabs {
+		.nav-item {padding: 0.5em 1em;}
+		.nav-item:first-of-type {padding-left: 0;}
+		.nav-link {font-size: 1.37rem; padding: 0; transition: color .2s ease-out, border-bottom .2s ease-out; border-bottom-width: 2px; border-bottom-color: rgba(95, 156, 199, 0.4);}
+		.nav-link.active {font-weight: 500; border-bottom-color: transparent;}
+		.nav-link:focus, .nav-link:hover {border-bottom-color: #5f9cc7;}
+		.nav-link.active:focus, .nav-link.active:hover {cursor: default; border-bottom-color: transparent;}
+	}
+	
+	form {
+		.field {margin-top: 1.2rem;}
+		label+input {display: block;}
+		.field-text input {
+			padding: 10px 12px 9px; border-radius: 4px;
+			border: 1px solid rgba(109, 109, 109, 0.4);
+			background-color: transparent;
+		}
+	
+		.field-text input:focus, form .field-text input:active {background: #fff;}
+		.field-text input:hover {background: rgba(255, 255, 255, 0.6);}
+		
+		.actions {margin-top: 2rem;}
+		input[type='submit'], button[type='submit'] {
+			font-size: 1.2rem;
+			line-height: 2rem;
+			width: 220px;
+		}
+	}
+	
+	a.recover-pass {text-decoration: none; transition: border-bottom .2s ease-out; border-bottom: 1px solid rgba(95, 156, 199, 0.5);}
+	a.recover-pass:focus, a.recover-pass:hover {border-bottom-color: #5f9cc7;}
+	
+	.signin_more_links {
+		margin-top: 2rem;
+		
+		.sign-in, .sign-up {display: inline-block;}
+		.sign-up {margin-left: 2rem;}
+		.psw-recover, .psw-confirm, .how-unlock {display: block; clear: both;}
+	}
+}
+
+
+/* From Medium size (from Tablets) */
+@media only screen and (min-width: 768px) {
+	.signin_block {
+		form .field-text input {min-width: 300px;}
+	}
+}

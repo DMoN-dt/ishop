@@ -1,0 +1,12 @@
+# encoding: UTF-8
+
+// Page Title
+- page_header = t(:header_new_customer, scope: [:dt_ishop, :cabinet, :profile]) 
+
+- content_for :html_title do
+  |#{page_header} - #{t(:html_title_short_part, scope: [:dt_breeze])}
+
+div[class="cabinet-mainpage" id="cabinet_mainpage"]
+  div[class="page-block padding-more"]
+    h1 #{page_header}
+    = render 'edit_fields'
